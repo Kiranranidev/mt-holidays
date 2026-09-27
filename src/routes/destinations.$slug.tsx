@@ -113,7 +113,7 @@ function DestinationDetailPage() {
             <WhatsAppButton
               size="full"
               variant="outline"
-              label="Ask about {name}".replace("{name}", item.name)
+              label={`Ask about ${item.name}`}
               message={`Hello, I would like to know more about travelling to ${item.name}.`}
             />
           </div>
