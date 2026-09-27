@@ -10,12 +10,54 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EstimatorRouteImport } from './routes/estimator'
+import { Route as PaymentRouteImport } from './routes/payment'
+import { Route as RequestRouteImport } from './routes/request'
+import { Route as DestinationsIndexRouteImport } from './routes/destinations.index'
+import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as PackagesIndexRouteImport } from './routes/packages.index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EstimatorRoute = EstimatorRouteImport.update({
+  id: '/estimator',
+  path: '/estimator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestRoute = RequestRouteImport.update({
+  id: '/request',
+  path: '/request',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinationsIndexRoute = DestinationsIndexRouteImport.update({
+  id: '/destinations/',
+  path: '/destinations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DestinationsSlugRoute = DestinationsSlugRouteImport.update({
+  id: '/destinations/$slug',
+  path: '/destinations/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesIndexRoute = PackagesIndexRouteImport.update({
@@ -31,31 +73,90 @@ const PackagesSlugRoute = PackagesSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/estimator': typeof EstimatorRoute
+  '/payment': typeof PaymentRoute
+  '/request': typeof RequestRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/destinations/': typeof DestinationsIndexRoute
   '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/estimator': typeof EstimatorRoute
+  '/payment': typeof PaymentRoute
+  '/request': typeof RequestRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/destinations': typeof DestinationsIndexRoute
   '/packages': typeof PackagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/estimator': typeof EstimatorRoute
+  '/payment': typeof PaymentRoute
+  '/request': typeof RequestRoute
+  '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
+  '/destinations/': typeof DestinationsIndexRoute
   '/packages/': typeof PackagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/packages/$slug' | '/packages/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/estimator'
+    | '/payment'
+    | '/request'
+    | '/destinations/$slug'
+    | '/packages/$slug'
+    | '/destinations/'
+    | '/packages/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/packages/$slug' | '/packages'
-  id: '__root__' | '/' | '/packages/$slug' | '/packages/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/estimator'
+    | '/payment'
+    | '/request'
+    | '/destinations/$slug'
+    | '/packages/$slug'
+    | '/destinations'
+    | '/packages'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/estimator'
+    | '/payment'
+    | '/request'
+    | '/destinations/$slug'
+    | '/packages/$slug'
+    | '/destinations/'
+    | '/packages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  EstimatorRoute: typeof EstimatorRoute
+  PaymentRoute: typeof PaymentRoute
+  RequestRoute: typeof RequestRoute
+  DestinationsSlugRoute: typeof DestinationsSlugRoute
   PackagesSlugRoute: typeof PackagesSlugRoute
+  DestinationsIndexRoute: typeof DestinationsIndexRoute
   PackagesIndexRoute: typeof PackagesIndexRoute
 }
 
@@ -66,6 +167,55 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/estimator': {
+      id: '/estimator'
+      path: '/estimator'
+      fullPath: '/estimator'
+      preLoaderRoute: typeof EstimatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request': {
+      id: '/request'
+      path: '/request'
+      fullPath: '/request'
+      preLoaderRoute: typeof RequestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinations/': {
+      id: '/destinations/'
+      path: '/destinations'
+      fullPath: '/destinations/'
+      preLoaderRoute: typeof DestinationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/destinations/$slug': {
+      id: '/destinations/$slug'
+      path: '/destinations/$slug'
+      fullPath: '/destinations/$slug'
+      preLoaderRoute: typeof DestinationsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages/': {
@@ -87,7 +237,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  EstimatorRoute: EstimatorRoute,
+  PaymentRoute: PaymentRoute,
+  RequestRoute: RequestRoute,
+  DestinationsSlugRoute: DestinationsSlugRoute,
   PackagesSlugRoute: PackagesSlugRoute,
+  DestinationsIndexRoute: DestinationsIndexRoute,
   PackagesIndexRoute: PackagesIndexRoute,
 }
 export const routeTree = rootRouteImport
