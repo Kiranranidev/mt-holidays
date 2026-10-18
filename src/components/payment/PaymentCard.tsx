@@ -97,15 +97,11 @@ export function PaymentCard() {
         </div>
 
         <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-          <ButtonAnchor
-            href={whatsappLink(confirmationMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="whatsapp"
+          <WhatsAppButton
+            message={confirmationMessage}
+            label="Send payment details on WhatsApp"
             className="flex-1"
-          >
-            Send payment details on WhatsApp
-          </ButtonAnchor>
+          />
           <Button
             variant="outline"
             onClick={() => {
