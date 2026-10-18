@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { Link } from "@tanstack/react-router";
-import type { ComponentProps } from "react";
+import { createLink } from "@tanstack/react-router";
+import { forwardRef, type ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 /**
