@@ -9,7 +9,7 @@ import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 
 interface EnquiryFormProps {
   packages: Package[];
-  defaultPackageSlug?: string;
+  defaultPackageSlug?: string | undefined;
 }
 
 type Errors = Partial<Record<"name" | "mobile" | "email" | "message", string>>;

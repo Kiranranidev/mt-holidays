@@ -61,7 +61,7 @@ export interface PricingRequest {
 export interface PricingLine {
   label: string;
   amount: number;
-  note?: string;
+  note?: string | undefined;
 }
 
 export interface PricingResult {
@@ -75,11 +75,11 @@ export interface PricingResult {
 export interface EnquiryPayload {
   name: string;
   mobile: string;
-  email?: string;
-  packageSlug?: string;
-  travelDate?: string;
-  travelers?: number;
-  nights?: number;
+  email?: string | undefined;
+  packageSlug?: string | undefined;
+  travelDate?: string | undefined;
+  travelers?: number | undefined;
+  nights?: number | undefined;
   message: string;
 }
 
