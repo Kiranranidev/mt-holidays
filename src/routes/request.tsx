@@ -7,7 +7,7 @@ import { packageQueries } from "@/services/packageService";
 import { business, telLink, whatsappLink } from "@/data/business";
 
 export const Route = createFileRoute("/request")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { package?: string | undefined } => ({
     package: typeof search["package"] === "string" ? search["package"] : undefined,
   }),
   head: () => ({

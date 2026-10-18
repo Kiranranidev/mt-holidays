@@ -5,7 +5,7 @@ import { PriceEstimator } from "@/components/pricing/PriceEstimator";
 import { packageQueries } from "@/services/packageService";
 
 export const Route = createFileRoute("/estimator")({
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { package?: string | undefined } => ({
     package: typeof search["package"] === "string" ? search["package"] : undefined,
   }),
   head: () => ({

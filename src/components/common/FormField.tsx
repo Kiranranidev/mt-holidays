@@ -12,11 +12,11 @@ export const textareaClasses =
 interface FieldProps {
   id: string;
   label: string;
-  required?: boolean;
-  hint?: string;
-  error?: string;
+  required?: boolean | undefined;
+  hint?: string | undefined;
+  error?: string | undefined;
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
 }
 
 /** Accessible label + hint + validation message wrapper for form controls. */

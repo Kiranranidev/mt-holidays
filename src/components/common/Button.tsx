@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { Link } from "@tanstack/react-router";
-import type { ComponentProps } from "react";
+import { createLink } from "@tanstack/react-router";
+import { forwardRef, type ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -43,14 +43,14 @@ export function Button({
   return <button className={cn(buttonVariants({ variant, size }), className)} {...props} />;
 }
 
-export function ButtonLink({
-  variant,
-  size,
-  className,
-  ...props
-}: ComponentProps<typeof Link> & Variants) {
-  return <Link className={cn(buttonVariants({ variant, size }), className)} {...props} />;
-}
+const StyledAnchor = forwardRef<HTMLAnchorElement, ComponentProps<"a"> & Variants>(
+  function StyledAnchor({ variant, size, className, ...props }, ref) {
+    return <a ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props} />;
+  },
+);
+
+/** Router-aware link styled as a button; keeps full type-safe `to`/`params`/`search`. */
+export const ButtonLink = createLink(StyledAnchor);
 
 export function ButtonAnchor({
   variant,

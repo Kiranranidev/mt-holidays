@@ -11,9 +11,9 @@ import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 interface PriceEstimatorProps {
   packages: Package[];
   /** Preselected package slug, e.g. on a package detail page. */
-  defaultPackageSlug?: string;
+  defaultPackageSlug?: string | undefined;
   /** Hides the package dropdown when the package is fixed by the page. */
-  lockPackage?: boolean;
+  lockPackage?: boolean | undefined;
 }
 
 export function PriceEstimator({
